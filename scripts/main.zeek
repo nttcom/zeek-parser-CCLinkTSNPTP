@@ -5,12 +5,12 @@ export {
 	redef enum Log::ID += { LOG };
 
 	type Info: record {
-		ts:				time &log &optional;
+		ts:			time &log &optional;
 		src_mac:		string &log &optional;
 		dst_mac:		string &log &optional;
 		protocol:		string &log &optional;
 		pdu_type: 		string &log &optional;
-		pdu_choice:     string &log &optional;
+		pdu_choice:             string &log &optional;
 		number:			int &log &optional;
 		ts_end:			time &log &optional;
 	};
@@ -20,7 +20,7 @@ export {
 		dst_mac:		string &log &optional;
 		protocol:		string &log &optional;
 		pdu_type: 		string &log &optional;
-		pdu_choice:     string &log &optional;
+		pdu_choice:             string &log &optional;
 	};
 
 	type Ts_num: record {
