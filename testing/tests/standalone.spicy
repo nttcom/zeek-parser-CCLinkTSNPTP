@@ -1,0 +1,7 @@
+# @TEST-DOC: Test parsing behavior of cc_link_tsn_ptp.
+#
+# @TEST-EXEC: spicyc ${DIST}/analyzer/cc_link_tsn_ptp.spicy -j -d -o cc_link_tsn_ptp.hlto
+#
+# TODO: Add/adapt standalone parsing tests here.
+# @TEST-EXEC: printf "test string" | spicy-dump -p cc_link_tsn_ptp::Packet cc_link_tsn_ptp.hlto >output 2>&1
+# @TEST-EXEC: TEST_DIFF_CANONIFIER= btest-diff output
