@@ -9,8 +9,8 @@ export {
 		src_mac:		string &log &optional;
 		dst_mac:		string &log &optional;
 		protocol:		string &log &optional;
-		pdu_type: 		string &log &optional;
-		pdu_choice:             string &log &optional;
+		flame_type: 		string &log &optional;
+		pdu_type:               string &log &optional;
 		number:			int &log &optional;
 		ts_end:			time &log &optional;
 	};
@@ -19,8 +19,8 @@ export {
 		src_mac:		string &log &optional;
 		dst_mac:		string &log &optional;
 		protocol:		string &log &optional;
-		pdu_type: 		string &log &optional;
-		pdu_choice:             string &log &optional;
+		flame_type: 		string &log &optional;
+		pdu_type:               string &log &optional;
 	};
 
 	type Ts_num: record {
@@ -36,8 +36,8 @@ export {
 	info_insert$src_mac = idx$src_mac;
 	info_insert$dst_mac = idx$dst_mac;
 	info_insert$protocol = idx$protocol;
+	info_insert$flame_type = idx$flame_type;
 	info_insert$pdu_type = idx$pdu_type;
-	info_insert$pdu_choice = idx$pdu_choice;
 	if ( res_aggregationData[idx]?$ts_e ){
 		info_insert$ts_end = res_aggregationData[idx]$ts_e;
 	}
@@ -69,8 +69,8 @@ function create_aggregationData(info: Info): AggregationData
 	aggregationData$src_mac = info$src_mac;
 	aggregationData$dst_mac = info$dst_mac;
 	aggregationData$protocol = info$protocol;
+	aggregationData$flame_type = info$flame_type;
 	aggregationData$pdu_type = info$pdu_type;
-	aggregationData$pdu_choice = info$pdu_choice;
 
 	return aggregationData;
 	}
@@ -96,8 +96,8 @@ event raw::ptpSync(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpSync";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpSync";
 		
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -112,8 +112,8 @@ event raw::ptpPdelayReq(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpPdelayReq";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpPdelayReq";
 		
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -128,8 +128,8 @@ event raw::ptpPdelayResp(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpPdelayResp";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpPdelayResp";
 		
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -144,8 +144,8 @@ event raw::ptpFollowUp(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpFollowUp";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpFollowUp";
 		
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -160,8 +160,8 @@ event raw::ptpPdelayRespFollowUp(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpPdelayRespFollowUp";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpPdelayRespFollowUp";
 
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -176,8 +176,8 @@ event raw::ptpAnnounce(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpAnnounce";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpAnnounce";
 		
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -192,8 +192,8 @@ event raw::ptpdelayReq(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpdelayReq";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpdelayReq";
 		
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -208,8 +208,8 @@ event raw::ptpdelayResp(p: raw_pkt_hdr)
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
 	info$protocol = "cclink_ie_tsn";
-	info$pdu_type = "ptp";
-	info$pdu_choice = "ptpdelayResp";
+	info$flame_type = "ptp";
+	info$pdu_type = "ptpdelayResp";
 		
 	aggregationData = create_aggregationData(info);
 	insert_res_aggregationData(aggregationData, info);
@@ -226,8 +226,8 @@ event zeek_done()
 		info$src_mac = i$src_mac;
 		info$dst_mac = i$dst_mac;
 		info$protocol = i$protocol;
+		info$flame_type = i$flame_type;
 		info$pdu_type = i$pdu_type;
-		info$pdu_choice = i$pdu_choice;
 		if ( res_aggregationData[i]?$ts_e ){
 			info$ts_end = res_aggregationData[i]$ts_e;
 		}
