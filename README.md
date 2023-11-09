@@ -79,8 +79,8 @@ spicyc v1.5.0 (d0bc6053)
 | src_mac | string | 送信元MACアドレス |
 | dst_mac | string | 宛先MACアドレス |
 | protocol | string | プロトコル名 |
-| pdu_type | string | PDUタイプ |
-| pdu_choice | string | PDUサービスの選択 |
+| flame_type | string | データフレームの名前 |
+| pdu_type | string | プロトコルの関数名 |
 | number | int | パケット出現回数 |
 | ts_end | time | 最後に通信した時のタイムスタンプ |
 
@@ -92,8 +92,8 @@ spicyc v1.5.0 (d0bc6053)
 #empty_field	(empty)
 #unset_field	-
 #path	cclink-ie-tsn-ptp
-#open	2023-10-19-04-39-09
-#fields	ts	src_mac	dst_mac	protocol	pdu_type	pdu_choice	number	ts_end
+#open	2023-11-08-23-24-49
+#fields	ts	src_mac	dst_mac	protocol	flame_type	pdu_type	number	ts_end
 #types	time	string	string	string	string	string	int	time
 1697689393.379735	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpSync	30	1697689393.382119
 1697689491.686702	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpPdelayReq	30	1697689491.689062
@@ -103,7 +103,7 @@ spicyc v1.5.0 (d0bc6053)
 1697689840.681484	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpAnnounce	30	1697689840.683890
 1697689912.815431	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpdelayReq	30	1697689912.817823
 1697690093.693609	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpdelayResp	30	1697690093.696056
-#close	2023-10-19-04-39-09
+#close	2023-11-08-23-24-49
 ```
 
 ## 関連ソフトウェア
