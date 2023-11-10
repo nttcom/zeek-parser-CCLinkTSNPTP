@@ -78,7 +78,7 @@ spicyc v1.5.0 (d0bc6053)
 | ts | time | 最初に通信した時のタイムスタンプ |
 | src_mac | string | 送信元MACアドレス |
 | dst_mac | string | 宛先MACアドレス |
-| protocol | string | プロトコル名 |
+| service | string | プロトコル名 |
 | flame_type | string | データフレームの名前 |
 | pdu_type | string | プロトコルの関数名 |
 | number | int | パケット出現回数 |
@@ -93,7 +93,7 @@ spicyc v1.5.0 (d0bc6053)
 #unset_field	-
 #path	cclink-ie-tsn-ptp
 #open	2023-11-08-23-24-49
-#fields	ts	src_mac	dst_mac	protocol	flame_type	pdu_type	number	ts_end
+#fields	ts	src_mac	dst_mac	service	flame_type	pdu_type	number	ts_end
 #types	time	string	string	string	string	string	int	time
 1697689393.379735	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpSync	30	1697689393.382119
 1697689491.686702	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpPdelayReq	30	1697689491.689062
