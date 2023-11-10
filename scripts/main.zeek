@@ -8,7 +8,7 @@ export {
 		ts:			time &log &optional;
 		src_mac:		string &log &optional;
 		dst_mac:		string &log &optional;
-		protocol:		string &log &optional;
+		service:		string &log &optional;
 		flame_type: 		string &log &optional;
 		pdu_type:               string &log &optional;
 		number:			int &log &optional;
@@ -18,7 +18,7 @@ export {
 	type AggregationData: record {
 		src_mac:		string &log &optional;
 		dst_mac:		string &log &optional;
-		protocol:		string &log &optional;
+		service:		string &log &optional;
 		flame_type: 		string &log &optional;
 		pdu_type:               string &log &optional;
 	};
@@ -35,7 +35,7 @@ export {
 	info_insert$ts = res_aggregationData[idx]$ts_s;
 	info_insert$src_mac = idx$src_mac;
 	info_insert$dst_mac = idx$dst_mac;
-	info_insert$protocol = idx$protocol;
+	info_insert$service = idx$service;
 	info_insert$flame_type = idx$flame_type;
 	info_insert$pdu_type = idx$pdu_type;
 	if ( res_aggregationData[idx]?$ts_e ){
@@ -68,7 +68,7 @@ function create_aggregationData(info: Info): AggregationData
 	local aggregationData: AggregationData;
 	aggregationData$src_mac = info$src_mac;
 	aggregationData$dst_mac = info$dst_mac;
-	aggregationData$protocol = info$protocol;
+	aggregationData$service = info$service;
 	aggregationData$flame_type = info$flame_type;
 	aggregationData$pdu_type = info$pdu_type;
 
@@ -95,7 +95,7 @@ event raw::ptpSync(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpSync";
 		
@@ -111,7 +111,7 @@ event raw::ptpPdelayReq(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpPdelayReq";
 		
@@ -127,7 +127,7 @@ event raw::ptpPdelayResp(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpPdelayResp";
 		
@@ -143,7 +143,7 @@ event raw::ptpFollowUp(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpFollowUp";
 		
@@ -159,7 +159,7 @@ event raw::ptpPdelayRespFollowUp(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpPdelayRespFollowUp";
 
@@ -175,7 +175,7 @@ event raw::ptpAnnounce(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpAnnounce";
 		
@@ -191,7 +191,7 @@ event raw::ptpdelayReq(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpdelayReq";
 		
@@ -207,7 +207,7 @@ event raw::ptpdelayResp(p: raw_pkt_hdr)
 	info$ts = network_time();
 	info$src_mac = p$l2$src;
 	info$dst_mac = p$l2$dst;
-	info$protocol = "cclink_ie_tsn";
+	info$service = "cclink_ie_tsn";
 	info$flame_type = "ptp";
 	info$pdu_type = "ptpdelayResp";
 		
@@ -225,7 +225,7 @@ event zeek_done()
 		info$ts = res_aggregationData[i]$ts_s;
 		info$src_mac = i$src_mac;
 		info$dst_mac = i$dst_mac;
-		info$protocol = i$protocol;
+		info$service = i$service;
 		info$flame_type = i$flame_type;
 		info$pdu_type = i$pdu_type;
 		if ( res_aggregationData[i]?$ts_e ){
