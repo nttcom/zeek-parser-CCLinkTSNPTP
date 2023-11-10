@@ -71,7 +71,7 @@ This plug-in monitors all functions of time synchronization frame in CC-Link IE 
 | ts | time | timestamp of the first communication |
 | src_mac | string | source MAC address |
 | dst_mac | string | destination MAC address |
-| protocol | string | protocol name |
+| service | string | protocol name |
 | flame_type | string | ata frame name |
 | pdu_type | string | protocol function name |
 | number | int | number of packet occurrence |
@@ -85,7 +85,7 @@ An example of `cclink-ie-tsn-ptp.log` is as follows:
 #unset_field	-
 #path	cclink-ie-tsn-ptp
 #open	2023-11-08-23-24-49
-#fields	ts	src_mac	dst_mac	protocol	flame_type	pdu_type	number	ts_end
+#fields	ts	src_mac	dst_mac	service	flame_type	pdu_type	number	ts_end
 #types	time	string	string	string	string	string	int	time
 1697689393.379735	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpSync	30	1697689393.382119
 1697689491.686702	00:0c:29:a8:c1:f0	00:4e:01:c5:21:8f	cclink_ie_tsn	ptp	ptpPdelayReq	30	1697689491.689062
