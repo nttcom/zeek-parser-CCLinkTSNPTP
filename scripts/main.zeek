@@ -184,38 +184,6 @@ event raw::ptpAnnounce(p: raw_pkt_hdr)
 	}
 
 
-event raw::ptpdelayReq(p: raw_pkt_hdr)
-	{
-	local info: Info;
-	local aggregationData: AggregationData;
-	info$ts = network_time();
-	info$src_mac = p$l2$src;
-	info$dst_mac = p$l2$dst;
-	info$service = "cclink_ie_tsn";
-	info$flame_type = "ptp";
-	info$pdu_type = "ptpdelayReq";
-		
-	aggregationData = create_aggregationData(info);
-	insert_res_aggregationData(aggregationData, info);
-	}
-
-
-event raw::ptpdelayResp(p: raw_pkt_hdr)
-	{
-	local info: Info;
-	local aggregationData: AggregationData;
-	info$ts = network_time();
-	info$src_mac = p$l2$src;
-	info$dst_mac = p$l2$dst;
-	info$service = "cclink_ie_tsn";
-	info$flame_type = "ptp";
-	info$pdu_type = "ptpdelayResp";
-		
-	aggregationData = create_aggregationData(info);
-	insert_res_aggregationData(aggregationData, info);
-	}
-
-
 #local debug
 event zeek_done()
 {
