@@ -13,8 +13,6 @@ public type Packet = unit {
         MType::PtpFollowUp            ->  ptpFollowUp:  PtpFollowUp;
         MType::PtpPdelayRespFollowUp  ->  ptpPdelayRespFollowUp:  PtpPdelayRespFollowUp;
         MType::PtpAnnounce            ->  ptpAnnounce:  PtpAnnounce;
-        MType::PtpdelayReq            ->  ptpdelayReq:  PtpdelayReq;
-        MType::PtpdelayResp           ->  ptpdelayResp:  PtpdelayResp;
         *                             ->  unk:  Unknown;
         };     
 };
@@ -26,8 +24,6 @@ type MType = enum {
     PtpFollowUp = 8,
     PtpPdelayRespFollowUp = 10,
     PtpAnnounce = 11,
-    PtpdelayReq = 1,
-    PtpdelayResp = 9,
 };
 
 type PtpSync = unit {
@@ -51,14 +47,6 @@ type PtpPdelayRespFollowUp = unit {
 };
 
 type PtpAnnounce = unit {
-    data: bytes &eod;
-};
-
-type PtpdelayReq = unit {
-    data: bytes &eod;
-};
-
-type PtpdelayResp = unit {
     data: bytes &eod;
 };
 
