@@ -59,7 +59,7 @@ event zeek_init() &priority=5
 
 event zeek_init()
 	{
-	if ( ! PacketAnalyzer::try_register_packet_analyzer_by_name("Ethernet", 0x88f7, "spicy::TSN_PTP") )
+	if ( ! PacketAnalyzer::try_register_packet_analyzer_by_name("Ethernet", 0x88f7, "spicy_TSN_PTP") )
 		print "cannot register raw layer analyzer";
 	}
 
